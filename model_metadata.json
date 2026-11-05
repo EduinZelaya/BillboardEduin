@@ -1,0 +1,17 @@
+{
+    "nombre_modelo": "Árbol de Decisión - Billboard Top 1",
+    "tipo_modelo": "Clasificación supervisada",
+    "accuracy_test": 0.7638,
+    "variables_modelo": [
+        "artist_type",
+        "mood",
+        "tempo",
+        "genre",
+        "durationSeg"
+    ],
+    "archivos_generados": [
+        "/content/models/arbol_billboard.pkl",
+        "/content/models/model_metadata.json",
+        "/content/outputs/billboard_predicciones_test.csv"
+    ]
+}
