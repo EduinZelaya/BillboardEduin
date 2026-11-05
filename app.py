@@ -157,12 +157,3 @@ if enviar:
 
     except Exception as e:
       st.warning(f"Error al generar recomendaciones con Groq: {e}")
-  else:
-    st.warning(
-        "Agrega la variable GROQ_API_KEY en los secretos de Streamlit para"
-        " recibir retroalimentación del Productor de IA."
-    )
-
-st.divider()
-st.write("Vista rápida de canciones históricas (Billboard):")
-st.dataframe(df.head(20), use_container_width=True)
