@@ -1,4 +1,4 @@
-app_code = """import os
+app_code = import os
 import json
 import joblib
 import pandas as pd
@@ -6,7 +6,7 @@ import streamlit as st
 from openai import OpenAI
 
 st.set_page_config(page_title='Predicción Billboard', layout='centered')
-st.title('Predicción de Éxito Billboard Top 1 - Tu Nombre - ISC')
+st.title('Predicción de Éxito Billboard Top 1 - Eduin Zelaya - ISC')
 
 @st.cache_resource
 def cargar_modelo():
@@ -147,7 +147,7 @@ if enviar:
 st.divider()
 st.write('Vista rápida de canciones históricas (Billboard):')
 st.dataframe(df.head(20), use_container_width=True)
-"""
+
 
 # Guardar el archivo app.py en el entorno local
 with open("app.py", "w", encoding="utf-8") as f:
