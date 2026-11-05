@@ -90,44 +90,11 @@ if enviar:
 
   nueva_cancion_encoded = pd.get_dummies(nueva_cancion, drop_first=True)
 
-  columnas_modelo_finales = [
-      "durationSeg",
-      "artist_type_Male",
-      "artist_type_Mixed",
-      "mood_Brooding",
-      "mood_Cool",
-      "mood_Defiant",
-      "mood_Easygoing",
-      "mood_Empowering",
-      "mood_Energizing",
-      "mood_Excited",
-      "mood_Fiery",
-      "mood_Grizzled",
-      "mood_Hypnotic",
-      "mood_Lively",
-      "mood_Melancholy",
-      "mood_Mysterious",
-      "mood_Optimistic",
-      "mood_Other",
-      "mood_Peaceful",
-      "mood_Rowdy",
-      "mood_Sensual",
-      "mood_Sophisticated",
-      "mood_Spirited",
-      "mood_Stirring",
-      "mood_Urgent",
-      "mood_Yearning",
-      "tempo_Medium Tempo",
-      "tempo_Slow Tempo",
-      "genre_Electronica",
-      "genre_Jazz",
-      "genre_Other",
-      "genre_Pop",
-      "genre_Rock",
-      "genre_Soundtrack",
-      "genre_Traditional",
-      "genre_Urban",
-  ]
+  # Extraer automáticamente las columnas exactas que espera el modelo entrenado
+  if hasattr(modelo, "feature_names_in_"):
+    columnas_modelo_finales = list(modelo.feature_names_in_)
+  else:
+    columnas_modelo_finales = metadata.get("variables_modelo", [])
 
   nueva_cancion_encoded = nueva_cancion_encoded.reindex(
       columns=columnas_modelo_finales, fill_value=0
